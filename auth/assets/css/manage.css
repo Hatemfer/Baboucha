@@ -1,0 +1,225 @@
+/* Général */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eeeeee;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  padding: 20px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #ebb221;
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+  padding: 15px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Tableaux */
+#userTable,
+#articleTable {
+  width: 100%;
+  min-width: 600px;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+.table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: #f19823;
+  color: #fff;
+  font-weight: 600;
+}
+
+.table tbody tr {
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+}
+
+.table tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Images */
+.profile-pic,
+.article-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3498db;
+}
+
+.article-img {
+  border-radius: 8px;
+}
+
+/* Badges */
+.badge {
+  font-size: 0.875rem;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.bg-danger {
+  background-color: #d52234 !important;
+}
+
+.bg-info {
+  background-color: #e88b34 !important;
+}
+
+/* Boutons */
+.btn {
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-warning {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+.btn-warning:hover {
+  background-color: #e67e22;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+/* Graphiques */
+#articlesByEtatChart,
+#articlesByUserChart {
+  height: 300px;
+}
+
+/* Champs de recherche */
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 10px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 10px 40px 10px 15px; /* Espace pour l'icône */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 16px;
+  pointer-events: none; /* Empêche l'icône d'interférer avec le champ de saisie */
+}
+
+/* Bouton Retour */
+.button {
+  margin: 20px;
+  text-align: left;
+}
+
+.button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.button a:hover {
+  background-color: #f18e5d;
+}
+
+.button a:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 10px;
+  }
+
+  .card-header {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+  }
+}
