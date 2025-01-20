@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : sam. 18 jan. 2025 à 12:29
--- Version du serveur : 10.4.32-MariaDB
--- Version de PHP : 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Jan 19, 2025 at 09:05 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `ecom`
+-- Database: `ecom`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `article`
+-- Table structure for table `article`
 --
 
 CREATE TABLE `article` (
@@ -43,7 +43,7 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `article`
+-- Dumping data for table `article`
 --
 
 INSERT INTO `article` (`id`, `title`, `description`, `image_path`, `etat`, `prix`, `createdAt`, `updatedAt`, `DeletedAt`, `userId`, `category_id`, `subcategory_id`) VALUES
@@ -61,7 +61,7 @@ INSERT INTO `article` (`id`, `title`, `description`, `image_path`, `etat`, `prix
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categorie`
+-- Table structure for table `categorie`
 --
 
 CREATE TABLE `categorie` (
@@ -70,7 +70,7 @@ CREATE TABLE `categorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `categorie`
+-- Dumping data for table `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `name`) VALUES
@@ -81,7 +81,83 @@ INSERT INTO `categorie` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `subcategorie`
+-- Table structure for table `favorites`
+--
+
+CREATE TABLE `favorites` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `article_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `favorites`
+--
+
+INSERT INTO `favorites` (`id`, `user_id`, `article_id`, `created_at`) VALUES
+(21, 16, 14, '2025-01-19 19:01:15'),
+(22, 16, 13, '2025-01-19 19:52:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `code` varchar(6) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `expiry` datetime NOT NULL,
+  `used` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`id`, `email`, `code`, `created_at`, `expiry`, `used`) VALUES
+(1, 'houssembouallagui1@gmail.com', '292740', '2025-01-18 22:21:07', '2025-01-19 00:21:07', 0),
+(2, 'houssembouallagui1@gmail.com', '731531', '2025-01-18 22:25:14', '2025-01-19 00:25:14', 0),
+(3, 'houssembouallagui1@gmail.com', '891731', '2025-01-18 22:26:32', '2025-01-19 00:26:32', 0),
+(4, 'houssembouallagui1@gmail.com', '623031', '2025-01-18 22:27:02', '2025-01-19 00:27:02', 0),
+(5, 'houssembouallagui1@gmail.com', '436254', '2025-01-18 22:33:02', '2025-01-19 00:33:02', 0),
+(6, 'houssembouallagui1@gmail.com', '520912', '2025-01-18 22:47:30', '2025-01-19 00:47:30', 0),
+(7, 'houssembouallagui1@gmail.com', '065145', '2025-01-18 22:47:40', '2025-01-19 00:47:40', 0),
+(8, 'houssembouallagui1@gmail.com', '028297', '2025-01-18 22:47:50', '2025-01-19 00:47:50', 0),
+(9, 'houssembouallagui1@gmail.com', '401646', '2025-01-18 22:48:00', '2025-01-19 00:48:00', 0),
+(10, 'houssembouallagui1@gmail.com', '427380', '2025-01-18 22:48:11', '2025-01-19 00:48:11', 0),
+(11, 'houssembouallagui1@gmail.com', '086628', '2025-01-18 22:48:21', '2025-01-19 00:48:21', 0),
+(12, 'houssembouallagui1@gmail.com', '576485', '2025-01-18 22:48:31', '2025-01-19 00:48:31', 0),
+(13, 'houssembouallagui1@gmail.com', '560098', '2025-01-18 22:49:06', '2025-01-19 00:49:06', 0),
+(14, 'houssembouallagui1@gmail.com', '792786', '2025-01-18 22:49:16', '2025-01-19 00:49:16', 0),
+(15, 'houssembouallagui1@gmail.com', '528428', '2025-01-18 22:49:26', '2025-01-19 00:49:26', 0),
+(16, 'houssembouallagui1@gmail.com', '925872', '2025-01-18 22:49:51', '2025-01-19 00:49:51', 0),
+(17, 'houssembouallagui1@gmail.com', '109384', '2025-01-18 22:50:06', '2025-01-19 00:50:06', 0),
+(18, 'houssembouallagui1@gmail.com', '795393', '2025-01-18 22:50:56', '2025-01-19 00:50:56', 0),
+(19, 'houssembouallagui1@gmail.com', '954060', '2025-01-18 23:10:12', '2025-01-19 01:10:12', 0),
+(20, 'houssembouallagui1@gmail.com', '747300', '2025-01-19 10:50:29', '2025-01-19 12:50:29', 0),
+(21, 'houssembouallagui1@gmail.com', '322600', '2025-01-19 10:50:50', '2025-01-19 12:50:50', 0),
+(22, 'houssembouallagui1@gmail.com', '895681', '2025-01-19 10:50:57', '2025-01-19 12:50:57', 0),
+(23, 'houssembouallagui1@gmail.com', '159271', '2025-01-19 10:51:58', '2025-01-19 12:51:58', 0),
+(24, 'houssembouallagui1@gmail.com', '613609', '2025-01-19 10:53:43', '2025-01-19 12:53:43', 0),
+(25, 'houssembouallagui1@gmail.com', '212037', '2025-01-19 10:54:02', '2025-01-19 12:54:02', 0),
+(26, 'houssembouallagui1@gmail.com', '247329', '2025-01-19 10:54:43', '2025-01-19 12:54:43', 0),
+(27, 'houssembouallagui1@gmail.com', '908292', '2025-01-19 10:55:04', '2025-01-19 12:55:04', 0),
+(28, 'houssembouallagui1@gmail.com', '958895', '2025-01-19 10:57:54', '2025-01-19 12:57:54', 0),
+(29, 'houssembouallagui1@gmail.com', '652447', '2025-01-19 11:00:39', '2025-01-19 13:00:39', 0),
+(30, 'houssembouallagui1@gmail.com', '632187', '2025-01-19 11:06:37', '2025-01-19 13:06:37', 0),
+(31, 'houssembouallagui1@gmail.com', '835521', '2025-01-19 11:06:51', '2025-01-19 13:06:51', 1),
+(32, 'houssembouallagui1@gmail.com', '899776', '2025-01-19 11:16:43', '2025-01-19 13:16:43', 1),
+(33, 'houssembouallagui1@gmail.com', '749567', '2025-01-19 11:23:03', '2025-01-19 13:23:03', 0),
+(34, 'houssembouallagui1@gmail.com', '297605', '2025-01-19 11:23:59', '2025-01-19 13:23:59', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subcategorie`
 --
 
 CREATE TABLE `subcategorie` (
@@ -91,7 +167,7 @@ CREATE TABLE `subcategorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `subcategorie`
+-- Dumping data for table `subcategorie`
 --
 
 INSERT INTO `subcategorie` (`id`, `name`, `category_id`) VALUES
@@ -114,7 +190,7 @@ INSERT INTO `subcategorie` (`id`, `name`, `category_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -134,20 +210,22 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `prenom`, `nom`, `email`, `password`, `adresse`, `telephone`, `role`, `avatar`, `notificationsActives`, `dateInscription`, `DeletedAt`, `blocked`) VALUES
-(3, 'sam', 'sam', 'sam@gmail.com', '$2y$10$I9M0p045xcaY0lvAFb0dQ.6Txvsy8hS3IgIJ8cx8G0fmycmUygOHG', 'La marsa', '20851689', 'member', NULL, 1, '2025-01-14 23:01:30', NULL, 0),
+(3, 'sam', 'sam', 'sam@sam.com', '$2y$10$BdbDriEZK6s6EAPI2xkilukylPZnYnc3npKGRizvgqNivhByN07PW', 'La marsa', '20851689', 'member', NULL, 1, '2025-01-14 23:01:30', NULL, 0),
 (4, 'Hatem', 'Ferjeni', 'hatem@gmail.com', '$2y$10$acY2lVfEW4IfNui3QK3fH.MwvwhHnCwYCn.Wf2QZPc/WFXxnWpmqq', '32 rue othman mousli La marsa', '51203835', 'member', NULL, 1, '2025-01-14 23:03:23', NULL, 0),
-(12, 'in', 'Support', 'qa@gmail.com', '$2y$10$B0afwjxQAvnQ9Y6qJOWJ8uAdCcLhoIBc1qjnnXx3qMEwqbBoEcxBe', 'tunis', '24802937', 'admin', NULL, 1, '2025-01-18 11:10:08', NULL, 0);
+(12, 'in', 'Support', 'qa@gmail.com', '$2y$10$B0afwjxQAvnQ9Y6qJOWJ8uAdCcLhoIBc1qjnnXx3qMEwqbBoEcxBe', 'tunis', '24802937', 'admin', NULL, 1, '2025-01-18 11:10:08', NULL, 0),
+(15, 'testt', 'test', 'test@gmail.com', '$2y$10$jydzo2gMgiixF1qwPCoqOO44VvJsTagpms5rCs15kREQXN6jX.6B6', 'Tunis, Tunisie', '55555555', 'member', NULL, 1, '2025-01-18 19:23:50', NULL, 0),
+(16, 'Bouallagui', 'Houssem', 'houssembouallagui1@gmail.com', '$2y$10$sDor5sC/9PKvDyQuA0seP.FUoEWlaaFy18yFWNggGKcg.NhmEzHbC', 'Kasserine, sbeitla', '29223440', 'member', 'uploads/Screenshot 2025-01-18 224858.png', 1, '2025-01-18 22:20:32', NULL, 0);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `article`
+-- Indexes for table `article`
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`id`),
@@ -156,60 +234,86 @@ ALTER TABLE `article`
   ADD KEY `subcategory_id` (`subcategory_id`);
 
 --
--- Index pour la table `categorie`
+-- Indexes for table `categorie`
 --
 ALTER TABLE `categorie`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Index pour la table `subcategorie`
+-- Indexes for table `favorites`
+--
+ALTER TABLE `favorites`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_favorite` (`user_id`,`article_id`),
+  ADD KEY `article_id` (`article_id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subcategorie`
 --
 ALTER TABLE `subcategorie`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`);
 
 --
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `article`
+-- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT pour la table `categorie`
+-- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `subcategorie`
+-- AUTO_INCREMENT for table `favorites`
+--
+ALTER TABLE `favorites`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `subcategorie`
 --
 ALTER TABLE `subcategorie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `article`
+-- Constraints for table `article`
 --
 ALTER TABLE `article`
   ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
@@ -217,7 +321,14 @@ ALTER TABLE `article`
   ADD CONSTRAINT `article_ibfk_3` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategorie` (`id`) ON DELETE CASCADE;
 
 --
--- Contraintes pour la table `subcategorie`
+-- Constraints for table `favorites`
+--
+ALTER TABLE `favorites`
+  ADD CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `subcategorie`
 --
 ALTER TABLE `subcategorie`
   ADD CONSTRAINT `subcategorie_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categorie` (`id`) ON DELETE CASCADE;
